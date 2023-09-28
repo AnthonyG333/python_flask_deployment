@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang=“en”>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width" , initial-scale=1.0">
+    <title> Lincoln St. Cafe - Administrator Create Menu Option  </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='./css/AdminOptionCreate.css')}}">
+</head>
+<body id="container">
+    <div id="topNav">
+        <div>
+            <h1> <a href="/lincolnstcafe/admin/pizza" id="header"> Lincoln St. Cafe </a> </h1>
+        </div>
+        <div id="detail">
+            <p id="header"> Welcome Administrator, {{ curr_admin.user_name }} </p>
+            <p> <a href="/lincolnstcafe/admin/update/get" id="header"> Update Account </a> </p>
+            <p> <a href="/lincolnstcafe/admin/logout" id="header"> Logout </a> </p>
+        </div>
+    </div>
+    <div id="form">
+        <h3 id="title"> Add a New Menu Option: </h3>
+        <form action="/lincolnstcafe/admin/option/create/post" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label> Image </label> <br/>
+                <input type="file" name="image">
+                {% for message in get_flashed_messages(category_filter=["err_image"])%}
+                <p class="alert alert-danger"> {{message}} </p>
+                {% endfor %}
+                {% for message in get_flashed_messages(category_filter=["err_file_type"])%}
+                <p class="alert alert-danger"> {{message}} </p>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                <label> Name </label>
+                <input type="text" name="name" class="form-control">
+                {% for message in get_flashed_messages(category_filter=["err_name"])%}
+                <p class="alert alert-danger"> {{message}}</p>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                <label> Category </label>
+                <select name="category" class="form-control">
+                    <option value="pizza"> Pizza </option>
+                    <option value="pasta"> Pasta </option>
+                    <option value="sandwich"> Sandwich </option>
+                    <option value="pastry"> Pastry </option>
+                    <option value="drink"> Drink </option>
+                </select>
+                {% for message in get_flashed_messages(category_filter=["err_category"])%}
+                <p class="alert alert-danger"> {{message}}</p>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                <label> Detail </label>
+                <textarea name="detail" class="form-control"></textarea>
+                {% for message in get_flashed_messages(category_filter=["err_detail"])%}
+                <p class="alert alert-danger"> {{message}}</p>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                <label> Price </label>
+                <input type="number" name="price">
+                {% for message in get_flashed_messages(category_filter=["err_price"])%}
+                <p class="alert alert-danger"> {{message}}</p>
+                {% endfor %}
+            </div>
+            <button type="submit" class="btn btn-success"> Create </button>
+        </form>
+    </div>
+</body>
+</html>

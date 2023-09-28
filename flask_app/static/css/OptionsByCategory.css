@@ -1,0 +1,77 @@
+#container{
+    display: flex;
+    flex-direction: column;
+    background-color: ivory;
+}
+
+#topNav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: black;
+    padding: 15px;
+    padding-bottom: 20px;
+}
+
+#text1{
+    font-size: 50px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    color: white;
+    text-decoration: none;
+}
+
+#header{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    width: 25%;
+}
+
+#text2{
+    text-decoration: none;
+    color: white;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+#midNav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: black;
+}
+
+#bottomNav{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: ivory;
+}
+
+#optionBox{
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    padding: 20px;
+}
+
+#optionName{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 25px;
+}
+
+#detail{
+    padding: 10px;
+}
+
+#quantity{
+    width: 15%;
+}
+
+#alert{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

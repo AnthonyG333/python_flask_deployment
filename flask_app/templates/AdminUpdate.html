@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang=“en”>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width" , initial-scale=1.0">
+    <title> Lincoln St. Cafe - Administrator Update Account  </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='./css/AdminUpdate.css')}}">
+</head>
+<body id="container">
+    <div id="topNav">
+        <div>
+            <h1> <a href="/lincolnstcafe/admin/pizza" id="header"> Lincoln St. Cafe </a> </h1>
+        </div>
+        <div id="detail">
+            <p id="header"> Welcome Administrator, {{ curr_admin.user_name }} </p>
+            <p> <a href="/lincolnstcafe/admin/option/create/get" id="header"> Create New Menu Option </a> </p>
+            <p> <a href="/lincolnstcafe/admin/logout" id="header"> Logout </a> </p>
+        </div>
+    </div>
+    <div id="form">
+        <h3 id="title"> Update Account: </h3>
+        <form action="/lincolnstcafe/admin/update" method="post">
+            <input type="hidden" name="curr_admin_email" value="{{curr_admin.email}}">
+            <div class="form-group">
+                <label> First Name </label>
+                <input type="text" name="first_name" value="{{ curr_admin.first_name }}" class="form-control">
+                {% for message in get_flashed_messages(category_filter=["err_first_name"]) %}
+                <p class="alert alert-danger"> {{message}} </p>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                <label> Last Name </label>
+                <input type="text" name="last_name" value="{{ curr_admin.last_name }}" class="form-control">
+                {% for message in get_flashed_messages(category_filter=["err_last_name"]) %}
+                <p class="alert alert-danger"> {{message}} </p>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                <label> Email </label>
+                <input type="text" name="email" value="{{ curr_admin.email }}" class="form-control">
+                {% for message in get_flashed_messages(category_filter=["err_email"]) %}
+                <p class="alert alert-danger"> {{message}} </p>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                <label> Password </label>
+                <input type="input" name="password" class="form-control">
+                {% for message in get_flashed_messages(category_filter=["err_password"]) %}
+                <p class="alert alert-danger"> {{message}} </p>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                <label> Confirm Password </label>
+                <input type="input" name="confirm_password" class="form-control">
+                {% for message in get_flashed_messages(category_filter=["err_confirm_password"]) %}
+                <p class="alert alert-danger"> {{message}} </p>
+                {% endfor %}
+            </div>
+            <button type="submit" class="btn btn-success"> Update Account </button>
+        </form>
+        <div id="delete">
+            <p> <a href="/lincolnstcafe/admin/delete" class="btn btn-danger"> Delete Account </a> </p>
+        </div>
+    </div>
+</body>
+</html>

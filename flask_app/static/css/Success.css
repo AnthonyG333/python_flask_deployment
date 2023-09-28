@@ -1,0 +1,44 @@
+#container{
+    display: flex;
+    flex-direction: column;
+    background-color: ivory;
+}
+
+#topNav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: black;
+    padding: 15px;
+    padding-bottom: 20px;
+}
+
+#text1{
+    font-size: 50px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    color: white;
+    text-decoration: none;
+}
+
+#header{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    width: 25%;
+}
+
+#midNav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: black;
+}
+
+#text2{
+    text-decoration: none;
+    color: white;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}

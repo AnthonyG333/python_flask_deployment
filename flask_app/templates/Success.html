@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='./css/Success.css')}}">
+    <title>Lincoln St. Cafe - Thank You! </title>
+</head>
+<body id="container">
+    <div id="topNav">
+        <div> 
+            <h1> <a href="/lincolnstcafe" id="text1"> Lincoln St. Cafe </a> </h1>
+        </div>
+        <div id="header"> 
+            <h3 class="mr-2" id="text2"> <a href="/lincolnstcafe/cart/view" id="text2"> Cart </a> ( {{ session["cart_length"] }} ) </h3> 
+        </div>
+    </div>
+    <div id="midNav">
+        <h3> <a href="/lincolnstcafe/pizza" id="text2"> Pizzas </a> </h3>
+        <h3> <a href="/lincolnstcafe/pasta" id="text2"> Pastas </a> </h3>
+        <h3> <a href="/lincolnstcafe/sandwich" id="text2"> Sandwiches </a> </h3>
+        <h3> <a href="/lincolnstcafe/pastry" id="text2"> Pastries </a> </h3>
+        <h3> <a href="/lincolnstcafe/drink" id="text2"> Drinks </a> </h3>
+    </div>
+    <div class="container p-4">
+        <h1> Thank You for Your Order! </h1>
+        <h2> We greatly appreciate you for choosing to dine with Lincoln St. Cafe, and we look forward to serving you again. </h2>
+        <h2> A confirmation email has been sent, and your order will be ready shortly. </h2>
+    </div>
+</body>
+</html>

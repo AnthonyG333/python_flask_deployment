@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang=“en”>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width" , initial-scale=1.0">
+    <title> Lincoln St. Cafe - Home </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='./css/Home.css')}}">
+</head>
+<body id="container">
+    <div id="topNav">
+        <div> 
+            <h1> <a href="/lincolnstcafe" id="text1"> Lincoln St. Cafe </a> </h1>
+        </div>
+        <div id="header"> 
+            <h3 class="mr-2" id="text2"> <a href="/lincolnstcafe/cart/view" id="text2"> Cart </a> ( {{ session["cart_length"] }} ) </h3> 
+        </div>
+    </div>
+    <div id="midNav">
+        <h3> <a href="/lincolnstcafe/pizza" id="text2"> Pizzas </a> </h3>
+        <h3> <a href="/lincolnstcafe/pasta" id="text2"> Pastas </a> </h3>
+        <h3> <a href="/lincolnstcafe/sandwich" id="text2"> Sandwiches </a> </h3>
+        <h3> <a href="/lincolnstcafe/pastry" id="text2"> Pastries </a> </h3>
+        <h3> <a href="/lincolnstcafe/drink" id="text2"> Drinks </a> </h3>
+    </div>
+    <div id="imageBox"> 
+        <div id="imageBox2"> <img src="{{ url_for('static', filename='/images/lincolnstcafe.jpeg' )}}" alt="default_image" id="image"> </div>
+        <div id="imageBox2"> <img src="{{ url_for('static', filename='/images/restaurantfood.webp' )}}" alt="default_image" id="image"> </div>
+        <div id="imageBox2"> <img src="{{ url_for('static', filename='/images/restaurantinterior.jpeg' )}}" alt="default_image" id="image"> </div>
+    </div>
+    <div id="textBox">
+        <h1 id="text31" class="p-3"> From the Owner </h1>
+        <p id="text3" class="p-3"> 
+            Lincoln St. Cafe brings insight into life in Sicily through its traditional Italian cuisine.
+            In order to create the truest sense of authentic Italian flavors we source all ingredients from local organic farms.
+            We take pride in our belief that there is no length to which we will not go in order to bring the freshest and most delectable dishes to our customers.
+        </p> 
+    </div>
+    <div id="bottomNav">
+        <div id="box">
+            <h2 id="text4" class="p-4" style="color:white"> Location </h2>
+            <div class="p-4">
+                <h5 style="color:white"> 123 Main St </h5>
+                <h5 style="color:white"> Los Angeles, CA 90001 </h5>
+            </div>
+        </div>
+        <div id="box">
+            <h2 id="text4" class="p-4"> Hours </h2>
+            <div class="p-4">
+                <h5 style="color:white"> Monday - Friday | 10am - 5pm </h5>
+                <h5 style="color:white"> Saturday | 10am - 7pm </h5>
+                <h5 style="color:white"> Sunday | Closed </h5>
+            </div>
+        </div>
+        <div id="box">
+            <h2 id="text4" class="p-4"> Contact Us </h2>
+            <div class="p-4">
+                <h5 style="color:white"> (818) 123 - 4567 </h5>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

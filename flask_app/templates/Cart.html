@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='./css/Cart.css')}}">
+    <title> Lincoln St. Cafe - Cart </title>
+</head>
+<body id="container">
+    <div id="topNav">
+        <div> 
+            <h1> <a href="/lincolnstcafe" id="text1"> Lincoln St. Cafe </a> </h1>
+        </div>
+        <div id="header"> 
+            <h3 class="mr-2" id="text2"> <a href="/lincolnstcafe/cart/view" id="text2"> Cart </a> ( {{ session["cart_length"] }} ) </h3> 
+        </div>
+    </div>
+    <div id="midNav">
+        <h3> <a href="/lincolnstcafe/pizza" id="text2"> Pizzas </a> </h3>
+        <h3> <a href="/lincolnstcafe/pasta" id="text2"> Pastas </a> </h3>
+        <h3> <a href="/lincolnstcafe/sandwich" id="text2"> Sandwiches </a> </h3>
+        <h3> <a href="/lincolnstcafe/pastry" id="text2"> Pastries </a> </h3>
+        <h3> <a href="/lincolnstcafe/drink" id="text2"> Drinks </a> </h3>
+    </div>
+    <div class="container" id="bottomNav">
+        {% for dict in session["cart"]%}
+            <div id="optionBox">
+                <div>
+                    <img src="{{ url_for('static', filename='/images/' + dict['image'] )}}" alt="default_image" width="200">
+                </div>
+                <div id="detail">
+                    <p id="optionName"> {{ dict["name"] }} &nbsp; ${{ dict["price_per_unit"] }} </p>
+                    <p id="text3"> Quantity : {{ dict["quantity"] }} </p>
+                    <p id="text3"> Total : ${{ dict["total_price"] }} </p>
+                    <div> 
+                        <a href="/lincolnstcafe/cart/increment/{{dict['id']}}" class="btn btn-success m-1"> + </a>
+                        <a href="/lincolnstcafe/cart/decrement/{{dict['id']}}" class="btn btn-warning m-1"> - </a> 
+                        <a href="/lincolnstcafe/cart/remove/{{dict['id']}}" class="btn btn-danger m-1"> Remove </a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div id="detail2">
+        <h2> Subtotal : ${{ session["subtotal"] }} </h2>
+        {% if session["cart"] %}
+            <h3> <a href="/lincolnstcafe/cart/checkout/get"> Checkout </a> </h3>
+            <h4> <a href="/lincolnstcafe/cart/clear"> Empty Cart </a> </h4>
+        {% endif %}
+    </div>
+</body>
+</html>

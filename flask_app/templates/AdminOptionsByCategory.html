@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang=“en”>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width" , initial-scale=1.0">
+    <title> Lincoln St. Cafe - Administrator Home  </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='./css/AdminOptionsByCategory.css')}}">
+</head>
+<body id="container">
+    <div id="topNav">
+        <div>
+            <h1> <a href="/lincolnstcafe/admin/pizza" id="header"> Lincoln St. Cafe </a> </h1>
+        </div>
+        <div id="detail">
+            <p id="header"> Welcome Administrator, {{ curr_admin.user_name }} </p>
+            <p> <a href="/lincolnstcafe/admin/option/create/get" id="header"> Create New Menu Option </a> </p>
+            <p> <a href="/lincolnstcafe/admin/update/get" id="header"> Update Account </a> </p>
+            <p> <a href="/lincolnstcafe/admin/logout" id="header"> Logout </a> </p>
+        </div>
+    </div>
+    <div class="row" id="midNav">
+        <h2> <a href="/lincolnstcafe/admin/pizza" id="header"> Pizzas </a> </h2>
+        <h2> <a href="/lincolnstcafe/admin/pasta" id="header"> Pastas </a> </h2>
+        <h2> <a href="/lincolnstcafe/admin/sandwich" id="header"> Sandwiches </a> </h2>
+        <h2> <a href="/lincolnstcafe/admin/pastry" id="header"> Pastries </a> </h2>
+        <h2> <a href="/lincolnstcafe/admin/drink" id="header"> Drinks </a> </h2>
+    </div>
+    <div class="container" id="bottomNav">
+        {% if all_options %}
+            {% for option in all_options %}
+            <div id="optionBox">
+                <div>
+                    {% if not option.image %}
+                        <p class="text-danger"> No Image Uploaded Yet </p>
+                    {% endif %}
+                    {% if option.image %}
+                        <img src="{{ url_for('static', filename='/images/' + option.image )}}" alt="default_image" width="200">
+                    {% endif %}
+                </div>
+                <div id="detail"> 
+                    <p id="optionName"> {{ option.name }} &nbsp; ${{ option.price }} </p>
+                    <p> {{ option.detail }} </p>
+                    <p> <a href="/lincolnstcafe/admin/option/update/get/{{option.id}}" class="btn btn-success"> Update Option </a> </p>
+                </div>
+            </div>
+            {% endfor %}
+        {% endif %}
+        {% if not all_options %}
+            <h1 class="text-danger"> No Menu Options Created. </h1>
+        {% endif %}
+    </div>
+</body>
+</html>

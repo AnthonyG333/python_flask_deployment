@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <title>Lincoln St. Cafe - Checkout </title>
+</head>
+    <title>Lincoln St. Cafe - Thank You! </title>
+</head>
+<body class="container">
+    <h1> Thank You {{ session['first_name'] }}! </h1>
+    <h2> We greatly appreciate you for choosing to dine with Lincoln St. Cafe, and we look forward to serving you again. </h2>
+    <h2> Your order will be ready shortly. </h2>
+    <h3> Order Overview : </h3>
+    {% for dict in session['cart'] %}
+        <p> {{ dict['name'] }} </p>
+        <p> Quantity : {{ dict['quantity'] }} </p>
+    {% endfor %}
+    <h3> Total Quantity : {{ session['cart_length'] }} </h3> 
+    <h3> Subtotal : ${{ session['subtotal'] }} </h3>
+    <h3> (DISCLAIMER : No debit/card card information will be processed.) </h3>
+    </div>
+</body>
+</html>

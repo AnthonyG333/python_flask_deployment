@@ -1,0 +1,51 @@
+#container{
+    display: flex;
+    flex-direction: column;
+    background-color: ivory;
+}
+
+
+#header{
+    text-decoration: none;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    color: white;
+}
+
+#topNav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: black;
+}
+
+#midNav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: black;
+}
+
+#bottomNav{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: ivory;
+}
+
+#optionBox{
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    padding: 10px;
+}
+
+#optionName{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 25px;
+}
+
+#detail{
+    padding: 10px;
+}
