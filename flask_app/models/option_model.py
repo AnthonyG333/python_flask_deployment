@@ -114,6 +114,9 @@ class Option:
         if not data["card_number"]:
             is_valid = False
             flash("Card number is required.", "err_card_number")
+        if not data["card_number"].isnumeric():
+            is_valid = False
+            flash("Card number can only contain digits.", "err_card_number")
         elif len(data["card_number"]) < 15  or len(data["card_number"]) > 16:
             is_valid = False
             flash("Card number must be 15 or 16 digits.", "err_card_number")

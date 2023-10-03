@@ -155,6 +155,10 @@ def cart_checkout_post():
     first_name = request.form["first_name"]
     session["first_name"] = first_name
     email = request.form["email"]
+    card_number = request.form["card_number"]
+    length = len(card_number)
+    final_card_number = card_number[length-4:length]
+    session["card_number"] = final_card_number
 
     Subject = "Lincoln St. Cafe - Thank You for Your Order!"
     msg = Message( subject = Subject, sender = "lincolnstcafe@outlook.com", recipients = [email])
